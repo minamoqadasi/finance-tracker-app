@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 import { supabase } from "../lib/supabase";
-import { colors } from "../theme/colors";
+import { authColors } from "../theme/colors";
 
 export function AuthScreen() {
   const [mode, setMode] = useState<"sign-in" | "sign-up">("sign-in");
@@ -96,7 +96,7 @@ export function AuthScreen() {
               autoComplete="email"
               keyboardType="email-address"
               placeholder="you@example.com"
-              placeholderTextColor={colors.slate600}
+              placeholderTextColor={authColors.textMuted}
               style={styles.input}
               value={email}
               onChangeText={setEmail}
@@ -110,7 +110,7 @@ export function AuthScreen() {
               autoCapitalize="none"
               autoComplete="password"
               placeholder="Minimum 6 characters"
-              placeholderTextColor={colors.slate600}
+              placeholderTextColor={authColors.textMuted}
               style={styles.input}
               value={password}
               onChangeText={setPassword}
@@ -141,22 +141,22 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
     gap: 18,
-    backgroundColor: colors.sand50,
+    backgroundColor: authColors.canvas,
   },
   heroCard: {
     padding: 24,
     borderRadius: 28,
-    backgroundColor: colors.white,
+    backgroundColor: authColors.card,
     borderWidth: 1,
-    borderColor: colors.border,
-    shadowColor: colors.shadow,
+    borderColor: authColors.border,
+    shadowColor: authColors.shadow,
     shadowOpacity: 1,
     shadowRadius: 20,
     shadowOffset: { width: 0, height: 12 },
     elevation: 4,
   },
   kicker: {
-    color: colors.teal700,
+    color: authColors.primary,
     fontSize: 12,
     fontWeight: "700",
     letterSpacing: 1.4,
@@ -164,23 +164,23 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   title: {
-    color: colors.slate900,
+    color: authColors.text,
     fontSize: 30,
     fontWeight: "700",
     lineHeight: 36,
   },
   subtitle: {
     marginTop: 12,
-    color: colors.slate600,
+    color: authColors.textMuted,
     fontSize: 16,
     lineHeight: 24,
   },
   formCard: {
     padding: 20,
     borderRadius: 28,
-    backgroundColor: colors.white,
+    backgroundColor: authColors.card,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: authColors.border,
     gap: 16,
   },
   modeRow: {
@@ -191,24 +191,24 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 16,
-    backgroundColor: colors.sand100,
+    backgroundColor: authColors.primarySoft,
     alignItems: "center",
   },
   modeButtonActive: {
-    backgroundColor: colors.teal100,
+    backgroundColor: "#eadcff",
   },
   modeLabel: {
-    color: colors.slate600,
+    color: authColors.textMuted,
     fontWeight: "600",
   },
   modeLabelActive: {
-    color: colors.teal700,
+    color: authColors.primary,
   },
   fieldGroup: {
     gap: 8,
   },
   label: {
-    color: colors.slate900,
+    color: authColors.text,
     fontSize: 14,
     fontWeight: "600",
   },
@@ -216,26 +216,26 @@ const styles = StyleSheet.create({
     minHeight: 52,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: authColors.border,
     paddingHorizontal: 16,
-    backgroundColor: colors.sand50,
-    color: colors.slate900,
+    backgroundColor: authColors.canvas,
+    color: authColors.text,
   },
   submitButton: {
     minHeight: 54,
     borderRadius: 999,
-    backgroundColor: colors.teal700,
+    backgroundColor: authColors.primary,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 6,
   },
   submitLabel: {
-    color: colors.white,
+    color: "#fffdfc",
     fontWeight: "700",
     fontSize: 16,
   },
   helperText: {
-    color: colors.slate600,
+    color: authColors.textMuted,
     fontSize: 13,
     lineHeight: 20,
     textAlign: "center",

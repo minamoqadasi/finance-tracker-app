@@ -3,9 +3,9 @@ import { ActivityIndicator, SafeAreaView, StyleSheet, View } from "react-native"
 import type { Session } from "@supabase/supabase-js";
 
 import { AuthScreen } from "../src/components/AuthScreen";
-import { DashboardScreen } from "../src/components/DashboardScreen";
+import { AppShell } from "../src/components/AppShell";
 import { supabase } from "../src/lib/supabase";
-import { colors } from "../src/theme/colors";
+import { authColors } from "../src/theme/colors";
 
 export default function IndexScreen() {
   const [session, setSession] = useState<Session | null>(null);
@@ -32,7 +32,7 @@ export default function IndexScreen() {
   if (loading) {
     return (
       <SafeAreaView style={styles.loadingScreen}>
-        <ActivityIndicator size="large" color={colors.teal700} />
+        <ActivityIndicator size="large" color={authColors.primary} />
       </SafeAreaView>
     );
   }
@@ -40,7 +40,7 @@ export default function IndexScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        {session ? <DashboardScreen session={session} /> : <AuthScreen />}
+        {session ? <AppShell session={session} /> : <AuthScreen />}
       </View>
     </SafeAreaView>
   );
@@ -49,7 +49,7 @@ export default function IndexScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: colors.sand50,
+    backgroundColor: authColors.canvas,
   },
   container: {
     flex: 1,
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.sand50,
+    backgroundColor: authColors.canvas,
   },
 });
